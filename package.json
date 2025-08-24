@@ -9,7 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "build:static": "nuxt generate",
-    "deploy": "npm run build:static"
+    "deploy": "npm run generate"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
