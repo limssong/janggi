@@ -1,0 +1,172 @@
+@import 'variables';
+
+// 전역 스타일
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Arial', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+// 컨테이너 스타일
+.game-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.game-title {
+  text-align: center;
+  color: $board-color;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+// 게임 정보 영역
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+  
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.player-label {
+  font-weight: bold;
+  color: #495057;
+  font-size: 1.1rem;
+}
+
+.current-player {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.game-controls {
+  display: flex;
+  gap: 15px;
+  
+  @media (max-width: $breakpoint-md) {
+    justify-content: center;
+  }
+}
+
+// 게임판 영역
+.game-board {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.board-canvas {
+  border: 3px solid $board-color;
+  border-radius: 10px;
+  background: #f8f9fa;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  height: auto;
+}
+
+// 게임 규칙 영역
+.game-rules {
+  background: #e9ecef;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 5px solid #007bff;
+  
+  h3 {
+    color: #495057;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li {
+    color: #6c757d;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    
+    &:before {
+      content: "•";
+      color: #007bff;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+// 말 스타일
+.piece {
+  transition: all 0.2s ease;
+  
+  &.cho {
+    color: $cho-color;
+  }
+  
+  &.han {
+    color: $han-color;
+  }
+  
+  &.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px $selected-color;
+  }
+}
+
+// 유효한 이동 위치 표시
+.valid-move {
+  background: rgba($valid-move-color, 0.3);
+  border: 2px dashed $valid-move-color;
+  border-radius: 50%;
+}
+
+// 반응형 디자인
+@media (max-width: $breakpoint-sm) {
+  .game-container {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .game-title {
+    font-size: 2rem;
+  }
+  
+  .board-canvas {
+    width: 100%;
+    max-width: 400px;
+  }
+}
